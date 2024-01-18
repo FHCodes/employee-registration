@@ -1,6 +1,7 @@
 package br.com.RegisterPeople.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Employee {
 
@@ -31,6 +32,17 @@ public class Employee {
     public Double getSalary() {
         return salary;
     }
+
+    public String dateFormatting(LocalDate hire_date){
+        return hire_date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
+    public String salaryFormatting(Double salary) {
+        String formattedSalary = String.format("%.2f", salary);
+        formattedSalary = "R$ " + formattedSalary;
+        return formattedSalary;
+    }
+
 
     @Override
     public String toString() {

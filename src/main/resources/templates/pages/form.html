@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
     <head>
-        <meta charset="UTF-8">
         <title>Employee registration</title>
     </head>
-    <body>
-        <form method="post">
-            <label for="name">Name:</label>
-            <input id="name" name="name" required>
+    <div layout:fragment="content">
+        <body>
+            <form method="post">
 
-            <br/>
+                <h1>Register Employee</h1>
+                <div>
+                    <label for="name">Name:</label>
+                    <input id="name" name="name" required>
+                </div>
 
-            <label for="position">Position:</label>
-            <input id="position" name="position" required>
+                <div>
+                    <label for="position">Position:</label>
+                    <input id="position" name="position" required>
+                </div>
 
-            <br/>
+                <div>
+                    <label for="hire_date">Hire Date:</label>
+                    <input type="date" id="hire_date" name="hire_date" required>
+                </div>
 
-            <label for="hire_date">Hire Date:</label>
-            <input type="date" id="hire_date" name="hire_date" required>
+                <div>
+                    <label for="salary">Salary:</label>
+                    <input type="salary" id="salary" name="salary" required>
+                </div>
 
-            <br/>
-
-            <label for="salary">Salary:</label>
-            <input type="salary" id="salary" name="salary" required>
-
-            <br/>
-
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+                <input type="submit" onclick="alert('Registered Data!')" value="Submit">
+            </form>
+        </body>
+    </div>
 </html>

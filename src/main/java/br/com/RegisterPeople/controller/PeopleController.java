@@ -17,7 +17,7 @@ public class PeopleController {
 
     @GetMapping("")
     public String loadHome() {
-        return "home";
+        return "pages/home";
     }
 
     @GetMapping("/form")
@@ -35,9 +35,6 @@ public class PeopleController {
     public String registerEmployee(EmployeeData data) {
         Employee emp = new Employee(data);
         employees.add(emp);
-
-
-        System.out.println(employees);
         return "pages/form";
     }
 }
