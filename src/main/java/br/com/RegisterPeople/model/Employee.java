@@ -1,20 +1,34 @@
 package br.com.RegisterPeople.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Entity
+@Table(name = "employees")
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String position;
     private LocalDate hire_date;
     private Double salary;
+
+    public Employee() {
+    }
 
     public Employee(EmployeeData data) {
         this.name = data.name();
         this.position = data.position();
         this.hire_date = LocalDate.parse(data.hire_date());
         this.salary = data.salary();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -32,17 +46,6 @@ public class Employee {
     public Double getSalary() {
         return salary;
     }
-
-    public String dateFormatting(LocalDate hire_date){
-        return hire_date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    }
-
-    public String salaryFormatting(Double salary) {
-        String formattedSalary = String.format("%.2f", salary);
-        formattedSalary = "R$ " + formattedSalary;
-        return formattedSalary;
-    }
-
 
     @Override
     public String toString() {

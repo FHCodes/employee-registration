@@ -2,18 +2,18 @@ package br.com.RegisterPeople.controller;
 
 import br.com.RegisterPeople.model.Employee;
 import br.com.RegisterPeople.model.EmployeeData;
+import br.com.RegisterPeople.model.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class PeopleController {
 
-    private List<Employee> employees = new ArrayList<>();
+    @Autowired
+    private EmployeeRepository repository;
 
     @GetMapping("")
     public String loadHome() {
@@ -27,14 +27,14 @@ public class PeopleController {
 
     @GetMapping("/show-employees")
     public String loadShowEmployees(Model model) {
-        model.addAttribute("listEmployee",employees);
+        model.addAttribute("listEmployee", repository.findAll());
         return "pages/showEmployees";
     }
 
     @PostMapping("/form")
     public String registerEmployee(EmployeeData data) {
         Employee emp = new Employee(data);
-        employees.add(emp);
+        repository.save(emp);
         return "pages/form";
     }
 }
