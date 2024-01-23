@@ -94,13 +94,14 @@ select {
     --azul-medio: #3970BE;
     --azul-claro: #E5F1FF;
     --cinza-texto: #444444;
+    --cinza-dark: #A9A9A9;
     --cinza-claro: #ECECEC;
     box-sizing: border-box;
 }
 
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
-    background-color: var(--azul-claro);
+    background-color: var(--cinza-dark);
     font-size: 14px;
     color: white;
     box-sizing: border-box;
@@ -148,8 +149,8 @@ nav a:hover {
 div > a {
     color: var(--azul-escuro);
     text-decoration: underline;
-    font-size: 18px;
-    margin: 10px;
+    font-size: 8px;
+    margin: 5px;
     display: inline-block;
 }
 
@@ -202,7 +203,7 @@ div > form {
 
 form div {
     margin: 1em;
-    font-size: 1.6em;
+    font-size: 1em;
 }
 
 h1 {
@@ -214,8 +215,8 @@ h1 {
 }
 
 form div input {
-    width: 50vw;
-    border-radius: 24px;
+    width: 40vw;
+    border-radius: 4px;
     display: block;
     color: black;
     padding: 1em

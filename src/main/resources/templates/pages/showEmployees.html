@@ -17,6 +17,7 @@
                     <th>POSITION</th>
                     <th>HIRE DATE</th>
                     <th>SALARY</th>
+                    <th>ACTION</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,17 @@
                     <td th:text="${employees.position}"></td>
                     <td th:text="${employees.hire_date}"></td>
                     <td th:text="${employees.salary}"></td>
+                    <td>
+                        <form  method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="id" th:value="${employees.id}">
+                            <input type="submit" value="Delete">
+                        </form>
+                        <form th:action="@{/form}" method="get">
+                            <input type="hidden" name="id" th:value="${employees.id}">
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
                 </tbody>
             </table>
         </body>

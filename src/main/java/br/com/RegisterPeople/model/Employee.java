@@ -56,4 +56,11 @@ public class Employee {
                 ", salary=" + salary +
                 '}';
     }
+
+    public void updateData(updatingEmployeeData data) {
+        this.name = data.name();
+        this.position = data.position();
+        this.hire_date = LocalDate.parse(data.hire_date());
+        this.salary = data.salary();
+    }
 }

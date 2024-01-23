@@ -6,33 +6,38 @@
     <head>
         <title>Employee registration</title>
     </head>
-    <div layout:fragment="content">
+
         <body>
-            <form method="post">
-
+            <div layout:fragment="content">
                 <h1>Register Employee</h1>
-                <div>
-                    <label for="name">Name:</label>
-                    <input id="name" name="name" required>
-                </div>
 
-                <div>
-                    <label for="position">Position:</label>
-                    <input id="position" name="position" required>
-                </div>
+                <form method="post" action="/form">
 
-                <div>
-                    <label for="hire_date">Hire Date:</label>
-                    <input type="date" id="hire_date" name="hire_date" required>
-                </div>
+                    <input type="hidden" name="_method" value="put" th:if="${employee != null}">
+                    <input type="hidden" name="id" th:value="${employee?.id}">
 
-                <div>
-                    <label for="salary">Salary:</label>
-                    <input type="salary" id="salary" name="salary" required>
-                </div>
+                    <div>
+                        <label for="name">Name:</label>
+                        <input id="name" name="name" th:value="${employee?.name}">
+                    </div>
 
-                <input type="submit" onclick="alert('Registered Data!')" value="Submit">
-            </form>
+                    <div>
+                        <label for="position">Position:</label>
+                        <input id="position" name="position" th:value="${employee?.position}">
+                    </div>
+
+                    <div>
+                        <label for="hire_date">Hire Date:</label>
+                        <input type="date" id="hire_date" name="hire_date" th:value="${employee?.hire_date}">
+                    </div>
+
+                    <div>
+                        <label for="salary">Salary:</label>
+                        <input type="salary" id="salary" name="salary" th:value="${employee?.salary}">
+                    </div>
+
+                    <input type="submit" onclick="alert('Registered Data!')" value="Submit">
+                </form>
+            </div>
         </body>
-    </div>
 </html>
